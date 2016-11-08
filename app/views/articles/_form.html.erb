@@ -1,0 +1,24 @@
+<%= form_for(@article) do |f| %>
+
+<p>
+  <%= f.label :title %>
+  <br>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :content %>
+  <br>
+  <%= f.text_area :content, id: 'editor' %>
+</p>
+
+<%= f.submit %>
+
+<% end %>
+
+<script>
+    var editor = ace.edit("editor");
+    var MarkDownMode = ace.require("ace/mode/markdown").Mode;
+    editor.session.setMode(new MarkDownMode());
+</script>
+
